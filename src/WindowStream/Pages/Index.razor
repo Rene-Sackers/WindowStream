@@ -1,0 +1,46 @@
+﻿@using WindowStream.Helpers
+@inherits IndexBase
+@page "/"
+
+@if (StreamWindowInstance == null)
+{
+	<div class="window-preview-grid">
+		@foreach (var window in OpenWindowsHelper.GetOpenWindows())
+		{
+			<div class="window-preview" @onclick="() => SelectWindow(window.Key)">
+				<span class="window-preview__title">@window.Value</span>
+				<div style="background-image: url('/CaptureWindow/@(window.Key)')" class="window-preview__image"></div>
+			</div>
+		}
+	</div>
+}
+else
+{
+	<div class="toolbar">
+		<button class="btn" @onclick="ChooseNewWindow">Choose window</button>
+		<button class="btn" onclick="fullscreenStream()">Fullscreen</button>
+		<br />
+		<br />
+		Trim
+		<br />
+		Left: <input type="number" @bind="StreamWindowInstance.TrimMargin.Left" />
+		Top: <input type="number" @bind="StreamWindowInstance.TrimMargin.Top" />
+		Right: <input type="number" @bind="StreamWindowInstance.TrimMargin.Right" />
+		Bottom: <input type="number" @bind="StreamWindowInstance.TrimMargin.Bottom" />
+		<br />
+		<br />
+		<button class="btn" @onclick="ApplyWindowsTrim">Apply default Windows trim</button>
+		<br />
+		<br />
+		Refresh interval
+		<br />
+		Interval: @(StreamWindowInstance.TimeoutInMilliseconds)ms
+		<input type="range" min="1" max="2000" style="width: 300px;" @bind="StreamWindowInstance.TimeoutInMilliseconds" @bind:event="oninput" />
+		<br />
+		<br />
+		<Performance StreamInstance="StreamWindowInstance" />
+	</div>
+	<div id="stream">
+		<img src="/StreamWindow/@StreamWindowInstance.Id" />
+	</div>
+}

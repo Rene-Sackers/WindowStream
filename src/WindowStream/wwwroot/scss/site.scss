@@ -1,0 +1,91 @@
+﻿body {
+	font-family: sans-serif;
+	margin: 0;
+}
+
+/*
+	Ok, look. I specifically made this shit so I could use my old Microsoft Lumia 950XL Windows Phone as an axuiliary display.
+	It runs Internet Explorer. That should tell you enough about the CSS coming up.
+	Yes, I know about object-fill/object-position, no Internet Explorer doesn't work with it.
+	Yes, I know about background-image/background-size, no Internet Explorer doesn't support MJPEGs in background-image images.
+	If you're sensitive to garbage CSS, avert your eyes now.
+*/
+#stream > img {
+	max-width: 100%;
+	max-height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.window-preview-grid {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.window-preview {
+	display: flex;
+	flex-flow: column;
+	width: 32%;
+	height: 400px;
+	margin: 0 5px 5px 0;
+	background: #EEE;
+	overflow: hidden;
+
+	@media (max-width: 1000px) {
+		height: 200px;
+	}
+
+	@media (max-width: 600px) {
+		height: 150px;
+	}
+
+	@media (max-width: 400px) {
+		width: 48%;
+	}
+
+	&:hover {
+		background: #999;
+	}
+
+	&__title {
+		white-space: nowrap;
+	}
+
+	&__image {
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.toolbar {
+	position: absolute;
+	z-index: 100;
+	padding: 10px;
+	background-color: #FFF;
+}
+
+.btn {
+	$blue: #386cff;
+	border: 0;
+    background: $blue;
+    color: #FFF;
+    padding: 10px 15px;
+    border-radius: 3px;
+
+	&:hover {
+		background-color: lighten($blue, 3%);
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:active {
+		background-color: darken($blue, 3%);
+	}
+}

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>29325fd3-6b55-4f43-a7ed-52b61c2fc873</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Pages\Index - Copy.razor.cs">
+      <DependentUpon>Index.razor.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\StreamWindow - Copy - Copy.cshtml.cs">
+      <DependentUpon>StreamWindow - Copy.cshtml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\StreamWindow - Copy.cshtml.cs">
+      <DependentUpon>StreamWindow.cshtml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
