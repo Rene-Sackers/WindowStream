@@ -72,10 +72,10 @@
 .btn {
 	$blue: #386cff;
 	border: 0;
-    background: $blue;
-    color: #FFF;
-    padding: 10px 15px;
-    border-radius: 3px;
+	background: $blue;
+	color: #FFF;
+	padding: 10px 15px;
+	border-radius: 3px;
 
 	&:hover {
 		background-color: lighten($blue, 3%);

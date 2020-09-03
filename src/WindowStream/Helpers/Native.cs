@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Text;
 
 namespace WindowStream.Helpers
 {
+	[SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "Native method calls")]
 	public class Native
 	{
 		[DllImport("user32.dll", CharSet = CharSet.Auto)]
@@ -28,6 +30,15 @@ namespace WindowStream.Helpers
 
 		[DllImport("USER32.DLL")]
 		public static extern IntPtr GetShellWindow();
+
+		[DllImport("user32.dll")]
+		public static extern bool SetCursorPos(int x, int y);
+
+		[DllImport("user32.dll")]
+		public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
+
+		public const int MOUSEEVENTF_LEFTDOWN = 0x02;
+		public const int MOUSEEVENTF_LEFTUP = 0x04;
 
 		public struct Rect
 		{

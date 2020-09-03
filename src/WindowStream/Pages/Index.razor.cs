@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using System;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
+using System.Threading.Tasks;
 using WindowStream.Models;
 using WindowStream.Services.Interfaces;
 
@@ -18,6 +17,8 @@ namespace WindowStream.Pages
 		public IJSRuntime JSRuntime { get; set; }
 
 		protected StreamWindowInstance StreamWindowInstance { get; set; }
+
+		protected ElementReference StreamImageElement { get; set; }
 
 		protected void SelectWindow(IntPtr hwnd)
 		{
@@ -44,6 +45,16 @@ namespace WindowStream.Pages
 			StreamWindowInstance.TrimMargin.Bottom = borderTrim;
 
 			StateHasChanged();
+		}
+		
+		protected async Task StreamClicked(MouseEventArgs mouseEventArgs)
+		{
+			await JSRuntime.InvokeVoidAsync(
+				"streamImageClicked",
+				StreamImageElement,
+				mouseEventArgs.ClientX,
+				mouseEventArgs.ClientY,
+				DotNetObjectReference.Create(StreamWindowInstance));
 		}
 	}
 }

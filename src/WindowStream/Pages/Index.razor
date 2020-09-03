@@ -41,6 +41,6 @@ else
 		<Performance StreamInstance="StreamWindowInstance" />
 	</div>
 	<div id="stream">
-		<img src="/StreamWindow/@StreamWindowInstance.Id" />
+		<img src="/StreamWindow/@StreamWindowInstance.Id" @ref="StreamImageElement" @onclick="StreamClicked" />
 	</div>
 }

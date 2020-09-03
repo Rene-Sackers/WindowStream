@@ -16,3 +16,13 @@ window.fullscreenStream = function () {
 
 	noSleepInstance.enable();
 };
+
+window.streamImageClicked = function (imageElement, clientX, clientY, streamWindowInstance) {
+	var boundingRect = imageElement.getBoundingClientRect();
+	var relativeX = (clientX - boundingRect.left) / boundingRect.width;
+	var relativeY = (clientY - boundingRect.top) / boundingRect.height;
+
+	console.log(relativeX, relativeY);
+	streamWindowInstance.invokeMethodAsync("PerformClickJs", relativeX, relativeY);
+	streamWindowInstance.dispose();
+};
