@@ -5,9 +5,14 @@ This is a web application that runs on your PC that allows you to stream individ
 
 I initially intended this for use with Microsoft Flight Simulator 2020, but you can stream any open window.
 
-[![FS2020 Instruments on remote displays](readme/youtube-video.png)](https://www.youtube.com/watch?v=hy8rIqrOdf0 "FS2020 Instruments on remote displays")
+[![FS2020 Instruments on remote displays](readme/youtube-video.png)](https://www.youtube.com/watch?v=nT2Mhzea7iE "FS2020 Instruments on remote displays")
 
 This application is something I threw together in a couple of hours. It's not extremely robust or pretty, but it works. See it as a temporary thing until someone creates something much nicer.
+
+## Features
+* Stream any window in Windows to any device with a browser
+* Adjustable framerates to fine-tune performance impact and refresh rate
+* Touch input! For instruments with touch controls, touching them on the remote display clicks on them in-game
 
 ## A few warnings/limitations
 There is **ZERO authentication** on this application and it currently listens to **ANY IP**. If someone is in your local network and they know your IP, then they can see your desktop. If you have for some reason forwarded the port the application is running on, or you have a DMZ network, anyone in the world with your public IP can see your desktop while the application is running.
